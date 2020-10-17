@@ -1,0 +1,2 @@
+name: PI_CRUST
+desc: Buildroot configuration for creating a Linux image for the Raspberry Pi Zero W for usage as a hardware barrier client
