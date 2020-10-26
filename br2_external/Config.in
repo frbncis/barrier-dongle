@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_PI_CRUST_PATH/package/barrier/Config.in"
