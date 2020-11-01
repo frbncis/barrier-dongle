@@ -5,17 +5,13 @@
 ################################################################################
 
 BARRIER_VERSION = 3395cca9673b645ddce3bac9141f148752f9494c
-BARRIER_SITE = $(call github,debauchee,barrier,$(BARRIER_VERSION))
+BARRIER_SITE = git://github.com/debauchee/barrier.git
+BARRIER_SITE_METHOD = git
 BARRIER_LICENSE = GPL-2.0
 BARRIER_LICENSE_FILES = LICENSE
 BARRIER_INSTALL_STAGING = YES
+BARRIER_GIT_SUBMODULES = YES
 
-define BARRIER_BUILD_CMDS
-  cd $(@D)
-	git submodule update --init --recursive
-	./clean_build.sh
-	#$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)
-endef
+BARRIER_CONF_OPTS =-DCMAKE_BUILD_TYPE=Release
 
-define BARRIER_INSTALL_TARGET_CMDS
-endef
+$(eval $(cmake-package))
