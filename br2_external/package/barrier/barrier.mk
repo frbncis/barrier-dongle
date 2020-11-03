@@ -14,4 +14,9 @@ BARRIER_GIT_SUBMODULES = YES
 
 BARRIER_CONF_OPTS =-DCMAKE_BUILD_TYPE=Release
 
+define BARRIER_INSTALL_INIT_SYSV
+	$(INSTALL) -m 0755 -D $(BARRIER_PKGDIR)/S99barrierc \
+		$(TARGET_DIR)/etc/init.d/S99barrierc
+endef
+
 $(eval $(cmake-package))

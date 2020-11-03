@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+## barrierc daemon init script
+
+DAEMON=/usr/bin/barrierc
+source /boot/barrierc.txt
+
+case "$1" in
+    start)
+        $DAEMON --name $BARRIERC_NAME $BARRIERC_SERVER
+        ;;
+    stop)
+        killall -9 barrierc
+        ;;
+    reload)
+        killall -9 barrierc
+        $DAEMON --name kvm-01 thiccpad
+        ;;
+    *)
+        echo "Usage: S99barrierc-daemon {start|stop|reload}" >&2
+        exit 1
+        ;;
+esac
+
