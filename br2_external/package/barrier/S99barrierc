@@ -14,7 +14,7 @@ case "$1" in
         ;;
     reload)
         killall -9 barrierc
-        $DAEMON --name kvm-01 thiccpad
+        $DAEMON --name $BARRIERC_NAME $BARRIERC_SERVER
         ;;
     *)
         echo "Usage: S99barrierc-daemon {start|stop|reload}" >&2
