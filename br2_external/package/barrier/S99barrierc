@@ -3,7 +3,7 @@
 ## barrierc daemon init script
 
 DAEMON=/usr/bin/barrierc
-source /boot/barrierc.txt
+source /data/barrierc.txt
 
 case "$1" in
     start)
