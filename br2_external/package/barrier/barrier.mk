@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BARRIER_VERSION = d3d6061d0b77e4c0c28f293c74b5549e319b3500
+BARRIER_VERSION = 4e999361076695ddae7df1bf9e38d40a43f61b7b
 BARRIER_SITE = ssh://git@github.com/frbncis/barrier.git
 BARRIER_SITE_METHOD = git
 BARRIER_LICENSE = GPL-2.0
