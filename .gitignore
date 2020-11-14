@@ -1,1 +1,4 @@
 build
+.buildroot.current.lock
+cache
+buildroot
