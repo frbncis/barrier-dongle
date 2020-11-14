@@ -28,7 +28,7 @@ steps:
     repositoryName: 'frbncis/barrier-dongle'
     action: 'create'
     target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
+    tagSource: 'userSpecifiedTag'
     assets: '$(Build.SourcesDirectory)/build/images/*.img'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
