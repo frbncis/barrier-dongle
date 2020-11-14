@@ -11,13 +11,24 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Bash@3
-  inputs:
-    filePath: 'setup-build.sh'
+# - task: Bash@3
+#   inputs:
+#     filePath: 'setup-build.sh'
 
-- task: Bash@3
+# - task: Bash@3
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       cd build
+#       make
+
+- task: GitHubRelease@1
   inputs:
-    targetType: 'inline'
-    script: |
-      cd build
-      make
+    gitHubConnection: 'github.com_frbncis'
+    repositoryName: 'frbncis/barrier-dongle'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    assets: '$(Build.SourcesDirectory)/build/images/*.img'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
