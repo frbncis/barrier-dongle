@@ -3,13 +3,6 @@
 set -u
 set -e
 
-# Load Wifi Module
-if [ -e ${TARGET_DIR}/etc/inittab ]; then
-  grep -qE '.*brcmfmac.*' ${TARGET_DIR}/etc/inittab || \
-    sed -i '/\/etc\/hostname/a\
-::sysinit:\/sbin\/modprobe brcmfmac # WiFi driver' ${TARGET_DIR}/etc/inittab
-fi
-
 mkdir -p ${TARGET_DIR}/boot  ${TARGET_DIR}/data
 
 # Mount boot partition as readonly
