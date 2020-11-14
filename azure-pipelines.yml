@@ -33,4 +33,4 @@ steps:
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
     tagPattern: '*'
-    tag: '$(tagName)'
+    tag: '$(Build.BuildNumber)'
