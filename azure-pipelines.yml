@@ -32,3 +32,4 @@ steps:
     assets: '$(Build.SourcesDirectory)/build/images/*.img'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+    tagPattern: '*'
