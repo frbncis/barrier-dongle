@@ -33,3 +33,4 @@ steps:
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
     tagPattern: '*'
+    tag: 'test'
