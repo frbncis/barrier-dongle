@@ -11,6 +11,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Bash@3
+- task: Setup buildroot
   inputs:
     filePath: 'setup-build.sh'
+
+- task: Build
+  inputs:
+    targetType: 'inline'
+    script: |
+      cd build
+      make
