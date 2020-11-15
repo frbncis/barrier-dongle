@@ -10,17 +10,29 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  CCACHE_DIR: $(Pipeline.Workspace)/ccache
+
 steps:
 - task: Bash@3
   displayName: 'Set up Buildroot'
   inputs:
     filePath: 'setup-build.sh'
 
+- task: Cache@2
+  inputs:
+    key: 'ccache | "$(Agent.OS)"'
+    path: $(CCACHE_DIR)
+  displayName: Setup Buildroot ccache
+
 - task: Bash@3
   displayName: 'Build'
   inputs:
     targetType: 'inline'
     script: |
+      export SYSTEM=`uname -s`
+      export BR2_CCACHE_DIR=$CCACHE_DIR
+      env
       cd build
       make
 
