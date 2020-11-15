@@ -12,6 +12,7 @@ pool:
 
 variables:
   CCACHE_DIR: $(Pipeline.Workspace)/ccache
+  CREATE_RELEASE: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
 steps:
 - task: InstallSSHKey@0
@@ -50,6 +51,7 @@ steps:
     replaceExistingArchive: true
 
 - task: GitHubRelease@1
+  condition: and(succeeded(), eq(variables.CREATE_RELEASE, true))
   displayName: 'Publish artifact'
   inputs:
     gitHubConnection: 'github.com_frbncis'
@@ -62,3 +64,4 @@ steps:
     changeLogType: 'commitBased'
     tagPattern: '*'
     tag: '$(Build.BuildNumber)'
+    
