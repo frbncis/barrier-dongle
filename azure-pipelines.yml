@@ -43,7 +43,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)/build/images/*.img'
+    rootFolderOrFile: '$(Build.SourcesDirectory)/build/images/sdcard.img'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/barrier-dongle-$(Build.BuildId).zip'
