@@ -14,6 +14,12 @@ variables:
   CCACHE_DIR: $(Pipeline.Workspace)/ccache
 
 steps:
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=='
+    sshKeySecureFile: 'id_rsa_azure_devops'
+    sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQx2BAlhXI9HYwd7e//9tsuU7vRtbqF9fIAYbuxuAd54VA5RNtr5nK372oEVh4Im+UmkFV1hjvn/sChcp2lEGAXGZMVwHsKmpdILbeDUvofHXIWOBvlMJRdgVrXY5vLe7Z/IvnYNJGDw6PizHDSU6fQjVaAqqPpKjRB1JbFRtE7WquW5SOPfW/88nabSOHk7jLh8W+i8Fp1kfl42d0UVkMqEfdsQNpK2Asr/rsScrKvk6Imb6nsJnkso++rg346f7cHd9K5uIRj02ijasifPHtObzJEw6S3MXk1SUt8awg+vOas9t+VwSU60Ocb+Eh2DNi/74zZUfbjn8YdpWznwRXZjMOHr5JnVVKViQl2EpPo5YqY75kGJIVkJyLv2iqqGP5ysv+i9PMOu01IEU0IIdsSzZg0Tap+qsYZLxqzW1cYX5GvqQdjBmtHMHGPZs5Punnmbrf5ABnXtD4R6KXTuD+T0DQHuPIsYG8rDQdIBfT/MoRpGNYoRon3k6vo8dop5s= azure_devops'
+
 - task: Bash@3
   displayName: 'Set up Buildroot'
   inputs:
