@@ -60,7 +60,7 @@ __EOF__
 done
 
 # TODO: Parse post-image script arguments to set cmdline.txt
-echo "root=/dev/mmcblk0p2 rootwait console=tty1 modules-load=dwc2,brcmfmac logo.nologo" > "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
+echo "root=/dev/mmcblk0p2 rootwait console=tty1 console=ttyAMA0,115200 modules-load=dwc2,g_serial logo.nologo" > "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
 
 # Pass an empty rootpath. genimage makes a full copy of the given rootpath to
 # ${GENIMAGE_TMP}/root so passing TARGET_DIR would be a waste of time and disk
