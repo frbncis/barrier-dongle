@@ -50,10 +50,10 @@ if [ ! -e $BUILDROOT ] || ! grep -q "$BUILDROOT_VERSION" "$BUILDROOT_CURRENT_LOC
     echo $BUILDROOT_VERSION > $BUILDROOT_LOCKFILE
     echo $BUILDROOT_VERSION > $BUILDROOT_CURRENT_LOCKFILE
 
-		rm -rf build
-		mkdir build
-		cd build
-		make O=$PWD BR2_EXTERNAL=../br2_external -C ../buildroot pi_crust_ext_sdk_defconfig
+    rm -rf build
+    mkdir build
+    cd build
+    make O=$PWD BR2_EXTERNAL=../br2_external -C ../buildroot pi_crust_ext_sdk_defconfig
 fi
 
 echo "Done!"
